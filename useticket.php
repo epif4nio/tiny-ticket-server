@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
 
 $allCodesFile = "./db/allCodesFile.txt";
@@ -34,7 +32,7 @@ if (!empty($code) and strlen($code)==8) {
 
 			if(preg_match_all($pattern, $usedCodesContent, $matches)){
 				//used codes
-				print "{ result: 1, message: 'ticket already used' }";
+				print "{ result: 2, message: 'ticket already used' }";
 				die();
 			}
 			else{
@@ -53,7 +51,7 @@ if (!empty($code) and strlen($code)==8) {
 }
 else {
 	//parameter code not found
-	print "{ result: 4, message: 'parameter ticket not found' }";
+	print "{ result: 4, message: 'missing parameter: ticket' }";
 	die();
 }
 
