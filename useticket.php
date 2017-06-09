@@ -45,13 +45,13 @@ if (!empty($code) and strlen($code)==8) {
 	}
 	else{
 		//invalid code: not found 
-		print "{ \"result\": 3, message: \"ticket not found\" }";
+		print "{ \"result\": 3, \"message\": \"ticket not found\" }";
 		die();
 	}
 }
 else {
 	//parameter code not found
-	print "{ \"result\": 4, \"message: \"missing parameter: ticket\" }";
+	print "{ \"result\": 4, \"message\": \"missing parameter: ticket\" }";
 	die();
 }
 
