@@ -21,7 +21,7 @@ if (!empty($code) and strlen($code)==8) {
 		
 		if (time() > $expirationDate) {
 			//expired codes
-			print "{ result: 1, message: 'ticket expired' }";
+			print "{ \"result\": 1, \"message\": \"ticket expired\" }";
 			die();
 		}
 		else {
@@ -32,26 +32,26 @@ if (!empty($code) and strlen($code)==8) {
 
 			if(preg_match_all($pattern, $usedCodesContent, $matches)){
 				//used codes
-				print "{ result: 2, message: 'ticket already used' }";
+				print "{ \"result\": 2, \"message\": \"ticket already used\" }";
 				die();
 			}
 			else{
 				//valid code
 				$promoUsedLine = "\r\n" . "{" . $codeId . "}" . date($dateTimeFormat);
 				file_put_contents($usedCodesFile, $promoUsedLine, FILE_APPEND);
-				print "{ result: 0, message: 'ticket validated' }"; 
+				print "{ \"result\": 0, \"message\": \"ticket validated\" }"; 
 			}			
 		}
 	}
 	else{
 		//invalid code: not found 
-		print "{ result: 3, message: 'ticket not found' }";
+		print "{ \"result\": 3, message: \"ticket not found\" }";
 		die();
 	}
 }
 else {
 	//parameter code not found
-	print "{ result: 4, message: 'missing parameter: ticket' }";
+	print "{ \"result\": 4, \"message: \"missing parameter: ticket\" }";
 	die();
 }
 
